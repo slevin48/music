@@ -1,0 +1,776 @@
+[
+  {
+    "endTime" : "2020-06-10 16:56",
+    "artistName" : "Alphaville",
+    "trackName" : "Forever Young",
+    "msPlayed" : 35538
+  },
+  {
+    "endTime" : "2020-06-10 16:57",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Time - 2011 Remastered Version",
+    "msPlayed" : 15956
+  },
+  {
+    "endTime" : "2020-06-10 16:57",
+    "artistName" : "Noir Désir",
+    "trackName" : "L'homme pressé",
+    "msPlayed" : 55692
+  },
+  {
+    "endTime" : "2020-06-10 16:58",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Shine On You Crazy Diamond, Pts. 6-9 - 2011 Remastered Version",
+    "msPlayed" : 29094
+  },
+  {
+    "endTime" : "2020-06-10 16:58",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Shine On You Crazy Diamond, Pts. 1-5 - 2011 Remastered Version",
+    "msPlayed" : 34683
+  },
+  {
+    "endTime" : "2020-06-10 17:03",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Have A Cigar - 2011 Remastered Version",
+    "msPlayed" : 307692
+  },
+  {
+    "endTime" : "2020-06-10 17:07",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Wish You Were Here - 2011 Remastered Version",
+    "msPlayed" : 219190
+  },
+  {
+    "endTime" : "2020-06-10 17:08",
+    "artistName" : "Queen",
+    "trackName" : "Bohemian Rhapsody - 2011 Mix",
+    "msPlayed" : 19790
+  },
+  {
+    "endTime" : "2020-06-10 17:08",
+    "artistName" : "PSY",
+    "trackName" : "Gangnam Style (강남스타일)",
+    "msPlayed" : 38934
+  },
+  {
+    "endTime" : "2020-06-10 17:11",
+    "artistName" : "Queen",
+    "trackName" : "I Want To Break Free",
+    "msPlayed" : 30650
+  },
+  {
+    "endTime" : "2020-06-10 17:11",
+    "artistName" : "Queen",
+    "trackName" : "20th Century Fox Fanfare",
+    "msPlayed" : 7565
+  },
+  {
+    "endTime" : "2020-06-10 17:12",
+    "artistName" : "Taron Egerton",
+    "trackName" : "I'm Still Standing",
+    "msPlayed" : 47181
+  },
+  {
+    "endTime" : "2020-06-10 17:13",
+    "artistName" : "Stevie Wonder",
+    "trackName" : "Faith",
+    "msPlayed" : 35691
+  },
+  {
+    "endTime" : "2020-06-10 17:13",
+    "artistName" : "Yusuf / Cat Stevens",
+    "trackName" : "The Wind",
+    "msPlayed" : 4441
+  },
+  {
+    "endTime" : "2020-06-10 17:13",
+    "artistName" : "Nick Kroll",
+    "trackName" : "Shake It Off",
+    "msPlayed" : 14100
+  },
+  {
+    "endTime" : "2020-06-10 17:14",
+    "artistName" : "Jennifer Hudson",
+    "trackName" : "Golden Slumbers / Carry That Weight",
+    "msPlayed" : 58700
+  },
+  {
+    "endTime" : "2020-06-10 17:15",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 7701
+  },
+  {
+    "endTime" : "2020-06-10 17:15",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 16643
+  },
+  {
+    "endTime" : "2020-06-10 17:15",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 13075
+  },
+  {
+    "endTime" : "2020-06-10 17:16",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 3182
+  },
+  {
+    "endTime" : "2020-06-10 17:16",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 24690
+  },
+  {
+    "endTime" : "2020-06-10 17:16",
+    "artistName" : "The White Stripes",
+    "trackName" : "Icky Thump",
+    "msPlayed" : 47932
+  },
+  {
+    "endTime" : "2020-06-10 17:18",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 40685
+  },
+  {
+    "endTime" : "2020-06-10 17:18",
+    "artistName" : "The White Stripes",
+    "trackName" : "Icky Thump",
+    "msPlayed" : 31219
+  },
+  {
+    "endTime" : "2020-06-10 17:19",
+    "artistName" : "George Michael",
+    "trackName" : "Faith",
+    "msPlayed" : 62154
+  },
+  {
+    "endTime" : "2020-06-10 17:20",
+    "artistName" : "The Dave Brubeck Quartet",
+    "trackName" : "Take Five",
+    "msPlayed" : 35445
+  },
+  {
+    "endTime" : "2020-06-10 17:20",
+    "artistName" : "Taylor Swift",
+    "trackName" : "Shake It Off",
+    "msPlayed" : 22697
+  },
+  {
+    "endTime" : "2020-06-10 17:21",
+    "artistName" : "Red Hot Chili Peppers",
+    "trackName" : "Californication",
+    "msPlayed" : 21436
+  },
+  {
+    "endTime" : "2020-06-10 17:21",
+    "artistName" : "Elton John",
+    "trackName" : "I'm Still Standing",
+    "msPlayed" : 24182
+  },
+  {
+    "endTime" : "2020-06-10 17:22",
+    "artistName" : "Scorpions",
+    "trackName" : "Still Loving You",
+    "msPlayed" : 41944
+  },
+  {
+    "endTime" : "2020-06-10 17:23",
+    "artistName" : "The Beach Boys",
+    "trackName" : "Kokomo",
+    "msPlayed" : 88688
+  },
+  {
+    "endTime" : "2020-06-10 17:24",
+    "artistName" : "David Bowie",
+    "trackName" : "Space Oddity - 2015 Remaster",
+    "msPlayed" : 37699
+  },
+  {
+    "endTime" : "2020-06-10 17:25",
+    "artistName" : "The Rolling Stones",
+    "trackName" : "Angie",
+    "msPlayed" : 23670
+  },
+  {
+    "endTime" : "2020-06-10 17:27",
+    "artistName" : "Chuck Berry",
+    "trackName" : "Johnny B. Goode",
+    "msPlayed" : 6939
+  },
+  {
+    "endTime" : "2020-06-10 17:27",
+    "artistName" : "Cream",
+    "trackName" : "Sunshine Of Your Love",
+    "msPlayed" : 127945
+  },
+  {
+    "endTime" : "2020-06-10 17:29",
+    "artistName" : "The Kooks",
+    "trackName" : "All Over Town",
+    "msPlayed" : 12200
+  },
+  {
+    "endTime" : "2020-06-10 17:29",
+    "artistName" : "The White Stripes",
+    "trackName" : "Icky Thump",
+    "msPlayed" : 21186
+  },
+  {
+    "endTime" : "2020-06-10 17:29",
+    "artistName" : "The White Stripes",
+    "trackName" : "Icky Thump",
+    "msPlayed" : 11198
+  },
+  {
+    "endTime" : "2020-06-10 17:30",
+    "artistName" : "Adam Levine",
+    "trackName" : "Lost Stars",
+    "msPlayed" : 39681
+  },
+  {
+    "endTime" : "2020-06-10 17:31",
+    "artistName" : "Klingande",
+    "trackName" : "Jubel",
+    "msPlayed" : 71943
+  },
+  {
+    "endTime" : "2020-06-10 17:32",
+    "artistName" : "Francis Cabrel",
+    "trackName" : "La corrida - Remastered",
+    "msPlayed" : 23180
+  },
+  {
+    "endTime" : "2020-06-10 17:32",
+    "artistName" : "Dire Straits",
+    "trackName" : "Money For Nothing",
+    "msPlayed" : 49197
+  },
+  {
+    "endTime" : "2020-06-10 17:33",
+    "artistName" : "Francis Cabrel",
+    "trackName" : "La Corrida",
+    "msPlayed" : 46463
+  },
+  {
+    "endTime" : "2020-06-10 17:34",
+    "artistName" : "RAIGN",
+    "trackName" : "Knocking on Heavens Door",
+    "msPlayed" : 10449
+  },
+  {
+    "endTime" : "2020-06-10 17:34",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 12193
+  },
+  {
+    "endTime" : "2020-06-10 17:34",
+    "artistName" : "Guns N' Roses",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 23694
+  },
+  {
+    "endTime" : "2020-06-10 17:34",
+    "artistName" : "Bill Withers",
+    "trackName" : "Ain't No Sunshine",
+    "msPlayed" : 34695
+  },
+  {
+    "endTime" : "2020-06-10 17:35",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Hurricane",
+    "msPlayed" : 36692
+  },
+  {
+    "endTime" : "2020-06-10 17:37",
+    "artistName" : "Bob Dylan",
+    "trackName" : "The Times They Are A-Changin'",
+    "msPlayed" : 147185
+  },
+  {
+    "endTime" : "2020-06-10 17:39",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Hurricane",
+    "msPlayed" : 2687
+  },
+  {
+    "endTime" : "2020-06-10 17:39",
+    "artistName" : "Jack Johnson",
+    "trackName" : "Inaudible Melodies",
+    "msPlayed" : 5948
+  },
+  {
+    "endTime" : "2020-06-10 17:39",
+    "artistName" : "Jack Johnson",
+    "trackName" : "Flake (Live)",
+    "msPlayed" : 2196
+  },
+  {
+    "endTime" : "2020-06-10 17:39",
+    "artistName" : "Supertramp",
+    "trackName" : "Breakfast In America - Remastered",
+    "msPlayed" : 4196
+  },
+  {
+    "endTime" : "2020-06-10 17:39",
+    "artistName" : "Audioslave",
+    "trackName" : "Be Yourself",
+    "msPlayed" : 21434
+  },
+  {
+    "endTime" : "2020-06-10 17:41",
+    "artistName" : "Jack Johnson",
+    "trackName" : "Flake",
+    "msPlayed" : 93949
+  },
+  {
+    "endTime" : "2020-06-10 17:42",
+    "artistName" : "Maître Gims",
+    "trackName" : "Sapés comme jamais (feat. Niska) - Pilule bleue",
+    "msPlayed" : 66323
+  },
+  {
+    "endTime" : "2020-06-10 17:45",
+    "artistName" : "Maître Gims",
+    "trackName" : "J'me tire",
+    "msPlayed" : 184445
+  },
+  {
+    "endTime" : "2020-06-10 17:45",
+    "artistName" : "Daft Punk",
+    "trackName" : "TRON Legacy (End Titles)",
+    "msPlayed" : 8183
+  },
+  {
+    "endTime" : "2020-06-10 17:45",
+    "artistName" : "The Weeknd",
+    "trackName" : "Blinding Lights",
+    "msPlayed" : 21447
+  },
+  {
+    "endTime" : "2020-06-10 17:47",
+    "artistName" : "Daft Punk",
+    "trackName" : "Overture",
+    "msPlayed" : 76697
+  },
+  {
+    "endTime" : "2020-06-10 17:48",
+    "artistName" : "Radiohead",
+    "trackName" : "Creep",
+    "msPlayed" : 32065
+  },
+  {
+    "endTime" : "2020-06-10 17:49",
+    "artistName" : "Frank Sinatra",
+    "trackName" : "Fly Me To The Moon - Remastered",
+    "msPlayed" : 30413
+  },
+  {
+    "endTime" : "2020-06-10 17:50",
+    "artistName" : "Yves Jamait",
+    "trackName" : "Ok, Tu T'en Vas",
+    "msPlayed" : 86432
+  },
+  {
+    "endTime" : "2020-06-10 17:51",
+    "artistName" : "Eagles",
+    "trackName" : "New Kid in Town - 2013 Remaster",
+    "msPlayed" : 44948
+  },
+  {
+    "endTime" : "2020-06-10 17:53",
+    "artistName" : "Georges Brassens",
+    "trackName" : "Les copains d'abord",
+    "msPlayed" : 87470
+  },
+  {
+    "endTime" : "2020-06-10 17:54",
+    "artistName" : "Manau",
+    "trackName" : "La tribu de Dana",
+    "msPlayed" : 7195
+  },
+  {
+    "endTime" : "2020-06-10 17:54",
+    "artistName" : "Daft Punk",
+    "trackName" : "The Grid",
+    "msPlayed" : 82539
+  },
+  {
+    "endTime" : "2020-06-10 17:57",
+    "artistName" : "Red Hot Chili Peppers",
+    "trackName" : "Californication",
+    "msPlayed" : 193699
+  },
+  {
+    "endTime" : "2020-06-10 17:57",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 1940
+  },
+  {
+    "endTime" : "2020-06-10 18:04",
+    "artistName" : "Scorpions",
+    "trackName" : "Still Loving You",
+    "msPlayed" : 403448
+  },
+  {
+    "endTime" : "2020-06-10 18:08",
+    "artistName" : "Taylor Swift",
+    "trackName" : "Shake It Off",
+    "msPlayed" : 219194
+  },
+  {
+    "endTime" : "2020-06-10 18:12",
+    "artistName" : "Bob Dylan",
+    "trackName" : "The Times They Are A-Changin'",
+    "msPlayed" : 191937
+  },
+  {
+    "endTime" : "2020-06-10 18:17",
+    "artistName" : "Jack Johnson",
+    "trackName" : "Flake",
+    "msPlayed" : 282942
+  },
+  {
+    "endTime" : "2020-06-10 18:17",
+    "artistName" : "Bill Withers",
+    "trackName" : "Ain't No Sunshine",
+    "msPlayed" : 6217
+  },
+  {
+    "endTime" : "2020-06-10 20:03",
+    "artistName" : "Charles Aznavour",
+    "trackName" : "La bohème",
+    "msPlayed" : 29932
+  },
+  {
+    "endTime" : "2020-06-10 20:03",
+    "artistName" : "Manau",
+    "trackName" : "La tribu de Dana",
+    "msPlayed" : 29916
+  },
+  {
+    "endTime" : "2020-06-12 17:00",
+    "artistName" : "Bill Withers",
+    "trackName" : "Ain't No Sunshine",
+    "msPlayed" : 25790
+  },
+  {
+    "endTime" : "2020-06-12 17:01",
+    "artistName" : "The Dave Brubeck Quartet",
+    "trackName" : "Take Five",
+    "msPlayed" : 33125
+  },
+  {
+    "endTime" : "2020-06-12 17:02",
+    "artistName" : "Queen",
+    "trackName" : "Bohemian Rhapsody - 2011 Mix",
+    "msPlayed" : 30410
+  },
+  {
+    "endTime" : "2020-06-12 17:03",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 73662
+  },
+  {
+    "endTime" : "2020-06-12 17:05",
+    "artistName" : "The White Stripes",
+    "trackName" : "300 M.P.H Torrential Outpour Blues",
+    "msPlayed" : 65428
+  },
+  {
+    "endTime" : "2020-06-12 17:06",
+    "artistName" : "Cream",
+    "trackName" : "Sunshine Of Your Love",
+    "msPlayed" : 58604
+  },
+  {
+    "endTime" : "2020-06-12 17:10",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Hurricane",
+    "msPlayed" : 6914
+  },
+  {
+    "endTime" : "2020-06-12 17:10",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 1043
+  },
+  {
+    "endTime" : "2020-06-12 17:10",
+    "artistName" : "George Michael",
+    "trackName" : "Faith",
+    "msPlayed" : 88826
+  },
+  {
+    "endTime" : "2020-06-12 17:11",
+    "artistName" : "Alphaville",
+    "trackName" : "Forever Young",
+    "msPlayed" : 46108
+  },
+  {
+    "endTime" : "2020-06-12 17:12",
+    "artistName" : "Taron Egerton",
+    "trackName" : "I'm Still Standing",
+    "msPlayed" : 40983
+  },
+  {
+    "endTime" : "2020-06-12 17:12",
+    "artistName" : "The Dave Brubeck Quartet",
+    "trackName" : "Take Five",
+    "msPlayed" : 1250
+  },
+  {
+    "endTime" : "2020-06-12 17:12",
+    "artistName" : "America",
+    "trackName" : "A Horse with No Name",
+    "msPlayed" : 32405
+  },
+  {
+    "endTime" : "2020-06-12 17:13",
+    "artistName" : "Red Hot Chili Peppers",
+    "trackName" : "Californication",
+    "msPlayed" : 50973
+  },
+  {
+    "endTime" : "2020-06-18 19:43",
+    "artistName" : "Red Hot Chili Peppers",
+    "trackName" : "Californication",
+    "msPlayed" : 14609
+  },
+  {
+    "endTime" : "2020-06-18 19:44",
+    "artistName" : "Maître Gims",
+    "trackName" : "J'me tire",
+    "msPlayed" : 26334
+  },
+  {
+    "endTime" : "2020-06-18 19:44",
+    "artistName" : "Eagles",
+    "trackName" : "Hotel California - 2013 Remaster",
+    "msPlayed" : 5892
+  },
+  {
+    "endTime" : "2020-06-18 19:44",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Time - 2011 Remastered Version",
+    "msPlayed" : 62867
+  },
+  {
+    "endTime" : "2020-06-18 19:47",
+    "artistName" : "Georges Brassens",
+    "trackName" : "Les copains d'abord",
+    "msPlayed" : 9374
+  },
+  {
+    "endTime" : "2020-06-18 19:47",
+    "artistName" : "Audioslave",
+    "trackName" : "Be Yourself",
+    "msPlayed" : 150363
+  },
+  {
+    "endTime" : "2020-06-18 19:52",
+    "artistName" : "Manau",
+    "trackName" : "La tribu de Dana",
+    "msPlayed" : 287892
+  },
+  {
+    "endTime" : "2020-06-18 19:53",
+    "artistName" : "The Beatles",
+    "trackName" : "Golden Slumbers - Remastered 2009",
+    "msPlayed" : 91760
+  },
+  {
+    "endTime" : "2020-06-18 19:57",
+    "artistName" : "Queen",
+    "trackName" : "I Want To Break Free",
+    "msPlayed" : 223080
+  },
+  {
+    "endTime" : "2020-06-18 20:01",
+    "artistName" : "Taron Egerton",
+    "trackName" : "I'm Still Standing",
+    "msPlayed" : 187837
+  },
+  {
+    "endTime" : "2020-06-18 20:05",
+    "artistName" : "Garou",
+    "trackName" : "Sous le vent",
+    "msPlayed" : 211317
+  },
+  {
+    "endTime" : "2020-06-18 20:11",
+    "artistName" : "Francis Cabrel",
+    "trackName" : "La corrida - Remastered",
+    "msPlayed" : 342589
+  },
+  {
+    "endTime" : "2020-06-18 20:14",
+    "artistName" : "PSY",
+    "trackName" : "Gangnam Style (강남스타일)",
+    "msPlayed" : 219347
+  },
+  {
+    "endTime" : "2020-06-18 20:20",
+    "artistName" : "Scorpions",
+    "trackName" : "Wind of Change",
+    "msPlayed" : 308837
+  },
+  {
+    "endTime" : "2020-06-18 20:24",
+    "artistName" : "Jack Johnson",
+    "trackName" : "Inaudible Melodies",
+    "msPlayed" : 218348
+  },
+  {
+    "endTime" : "2020-06-18 20:26",
+    "artistName" : "Frank Sinatra",
+    "trackName" : "Fly Me To The Moon - Remastered",
+    "msPlayed" : 147103
+  },
+  {
+    "endTime" : "2020-06-18 20:33",
+    "artistName" : "Scorpions",
+    "trackName" : "Still Loving You",
+    "msPlayed" : 403374
+  },
+  {
+    "endTime" : "2020-06-18 20:37",
+    "artistName" : "Elton John",
+    "trackName" : "I'm Still Standing",
+    "msPlayed" : 183364
+  },
+  {
+    "endTime" : "2020-06-18 20:42",
+    "artistName" : "The Dave Brubeck Quartet",
+    "trackName" : "Take Five",
+    "msPlayed" : 324105
+  },
+  {
+    "endTime" : "2020-06-18 20:45",
+    "artistName" : "Bob Dylan",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 149848
+  },
+  {
+    "endTime" : "2020-06-18 20:48",
+    "artistName" : "Imagine Dragons",
+    "trackName" : "Thunder",
+    "msPlayed" : 187111
+  },
+  {
+    "endTime" : "2020-06-18 21:02",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Shine On You Crazy Diamond, Pts. 1-5 - 2011 Remastered Version",
+    "msPlayed" : 811101
+  },
+  {
+    "endTime" : "2020-06-18 21:09",
+    "artistName" : "Guns N' Roses",
+    "trackName" : "Knockin' On Heaven's Door",
+    "msPlayed" : 336000
+  },
+  {
+    "endTime" : "2020-06-18 21:15",
+    "artistName" : "Pink Floyd",
+    "trackName" : "Have A Cigar - 2011 Remastered Version",
+    "msPlayed" : 234218
+  },
+  {
+    "endTime" : "2020-06-18 21:18",
+    "artistName" : "Buffalo Springfield",
+    "trackName" : "For What It's Worth",
+    "msPlayed" : 153606
+  },
+  {
+    "endTime" : "2020-06-18 21:21",
+    "artistName" : "Bob Dylan",
+    "trackName" : "The Times They Are A-Changin'",
+    "msPlayed" : 192077
+  },
+  {
+    "endTime" : "2020-06-18 21:25",
+    "artistName" : "Alphaville",
+    "trackName" : "Forever Young",
+    "msPlayed" : 226610
+  },
+  {
+    "endTime" : "2020-06-18 21:31",
+    "artistName" : "Ibrahim Maalouf",
+    "trackName" : "Una Rosa Blanca",
+    "msPlayed" : 337851
+  },
+  {
+    "endTime" : "2020-06-18 21:34",
+    "artistName" : "George Michael",
+    "trackName" : "Faith",
+    "msPlayed" : 194517
+  },
+  {
+    "endTime" : "2020-06-18 21:37",
+    "artistName" : "Chuck Berry",
+    "trackName" : "Johnny B. Goode",
+    "msPlayed" : 161566
+  },
+  {
+    "endTime" : "2020-06-18 21:42",
+    "artistName" : "Klingande",
+    "trackName" : "Jubel",
+    "msPlayed" : 283639
+  },
+  {
+    "endTime" : "2020-06-18 21:47",
+    "artistName" : "Eagles",
+    "trackName" : "New Kid in Town - 2013 Remaster",
+    "msPlayed" : 304760
+  },
+  {
+    "endTime" : "2020-06-18 21:52",
+    "artistName" : "David Bowie",
+    "trackName" : "Space Oddity - 2015 Remaster",
+    "msPlayed" : 318837
+  },
+  {
+    "endTime" : "2020-06-18 21:56",
+    "artistName" : "America",
+    "trackName" : "A Horse with No Name",
+    "msPlayed" : 252111
+  },
+  {
+    "endTime" : "2020-06-18 21:59",
+    "artistName" : "The Weeknd",
+    "trackName" : "Blinding Lights",
+    "msPlayed" : 199847
+  },
+  {
+    "endTime" : "2020-06-18 22:03",
+    "artistName" : "Paul Kalkbrenner",
+    "trackName" : "Sky and Sand",
+    "msPlayed" : 230083
+  },
+  {
+    "endTime" : "2020-06-18 22:07",
+    "artistName" : "De Palmas",
+    "trackName" : "Sur la route",
+    "msPlayed" : 221593
+  },
+  {
+    "endTime" : "2020-06-18 22:08",
+    "artistName" : "Yves Jamait",
+    "trackName" : "Ok, Tu T'en Vas",
+    "msPlayed" : 3111
+  },
+  {
+    "endTime" : "2020-06-18 22:08",
+    "artistName" : "Yves Jamait",
+    "trackName" : "Ok, Tu T'en Vas",
+    "msPlayed" : 44597
+  }
+]
