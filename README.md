@@ -2,24 +2,31 @@
 
 ![feature-plot](spotifyData/features.svg)
 
-
 This notebook leverages the Spotipy module to access the Spotify API:
 
 https://spotipy.readthedocs.io/
 
-* Current user
-* Saved Tracks
-* Saved Albums ([doc](https://developer.spotify.com/console/get-current-user-saved-albums))
-* Playlist ([doc](https://developer.spotify.com/console/get-current-user-playlists/))
-* Recently played ([doc](https://developer.spotify.com/console/get-recently-played/))
-* Artist albums
-* Artist top tracks
-* Search
-* Get token
-* Get features
-* Get recommendations based on seeds ([doc](https://developer.spotify.com/console/get-recommendations/))
+* Manual auth
+  * Get token
+  * Get song
+  * Get features
+  * Get recommendations
+* Spotipy
+  * Artist albums
+  * Artist top tracks
+  * Search
+  * Current user
+* Access Scopes (detailed later)
+  * Saved Tracks
+  * Saved Albums ([doc](https://developer.spotify.com/console/get-current-user-saved-albums))
+  * Playlist ([doc](https://developer.spotify.com/console/get-current-user-playlists/))
+  * Recently played ([doc](https://developer.spotify.com/console/get-recently-played/))
+  )
+  * Advanced recommendations based on seeds ([doc](https://developer.spotify.com/console/get-recommendations/))
 
-## Scope
+![spotifyNoneUserData](spotifyNonUserData.png)
+
+## Scopes
 
 * Images
   * [ugc-image-upload](https://developer.spotify.com/documentation/general/guides/scopes/#ugc-image-upload)
@@ -67,3 +74,4 @@ Analysis of features to produce a polar plot
 * https://github.com/jmcabreira/A-Music-Taste-Analysis-Using-Spotify-API-and-Python.
 * https://medium.com/analytics-vidhya/build-your-own-playlist-generator-with-spotifys-api-in-python-ceb883938ce4
 * https://towardsdatascience.com/get-your-spotify-streaming-history-with-python-d5a208bbcbd3
+* https://towardsdatascience.com/how-to-utilize-spotifys-api-and-create-a-user-interface-in-streamlit-5d8820db95d5

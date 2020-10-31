@@ -80,12 +80,11 @@ def get_track_reco(seed_tracks,token):
     res = requests.get(url=recUrl, headers=headers)
     return res.json()
 
-#Import Libraries for Feature plot
-import numpy as np
-import matplotlib.pyplot as plt
-
 def feature_plot(features):
-        
+    #Import Libraries for Feature plot
+    import numpy as np
+    import matplotlib.pyplot as plt
+
     labels= list(features)[:]
     stats= features.mean().tolist()
 
@@ -112,6 +111,10 @@ def feature_plot(features):
 
 
 def feature_plot2(features1,features2):
+    #Import Libraries for Feature plot
+    import numpy as np
+    import matplotlib.pyplot as plt
+    
     labels= list(features1)[:]
     stats= features1.mean().tolist()
     stats2 = features2.mean().tolist()
@@ -142,3 +145,18 @@ def feature_plot2(features1,features2):
     ax.grid(True)
 
     plt.legend(loc='best', bbox_to_anchor=(0.1, 0.1))
+
+def get_features(track_id: str, token: str) -> dict:
+    import spotipy
+    sp = spotipy.Spotify(auth=token)
+    try:
+        features = sp.audio_features([track_id])
+        return features[0]
+    except:
+        return None
+
+def parse_features(features):
+    import pandas as pd
+    df = pd.DataFrame(features, index=[0])
+    df_features = df.loc[: ,['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']]
+    return df_features
