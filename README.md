@@ -6,15 +6,14 @@ This notebook leverages the Spotipy module to access the Spotify API:
 
 https://spotipy.readthedocs.io/
 
-* Manual auth
-  * Get token
-  * Get song
+* [Basic auth](basicMusic.ipynb)
+  * Search & Get track
   * Get features
   * Get recommendations
-* Spotipy
+* Spotipy auth
   * Artist albums
   * Artist top tracks
-  * Search
+  * Advanced Search ([help](https://spotipy.readthedocs.io/en/2.16.1/#spotipy.client.Spotify.search))
   * Current user
 * Access Scopes (detailed later)
   * Saved Tracks

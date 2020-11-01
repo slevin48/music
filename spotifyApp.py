@@ -1,5 +1,7 @@
 import streamlit as st
 # import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import os
 from PIL import Image
 import requests
@@ -15,7 +17,6 @@ os.environ["SPOTIPY_CLIENT_SECRET"] = clientSecret
 os.environ["SPOTIPY_REDIRECT_URI"] = "https://open.spotify.com/"
 
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
-
 token  = spotifyAPI.get_token(clientId,clientSecret)
 
 # Sidebar
@@ -23,35 +24,28 @@ token  = spotifyAPI.get_token(clientId,clientSecret)
 st.sidebar.title("Spotify Features App")
 txt = st.sidebar.text_input('Enter Track',value='Lucy in the Sky')
 
-lucy_id = spotifyAPI.get_track_id2(txt, token)
+results = sp.search(q='track:'+txt,type='track')
+track_id = results['tracks']['items'][0]['id']
+track_album = results['tracks']['items'][0]['album']['name']
+img_album = results['tracks']['items'][0]['album']['images'][1]['url']
+r = requests.get(img_album)
+open('img/'+track_id+'.jpg', 'wb').write(r.content)
 
-url = "https://open.spotify.com/track/"+str(lucy_id)
-# import webbrowser
-# webbrowser.open(url)
-
-track = sp.track(lucy_id)
-album = track['album']['name']
-url_track = track['album']['images'][1]['url']
-r = requests.get(url_track)
-open('img/'+lucy_id+'.jpg', 'wb').write(r.content)
-
-image = Image.open('img/'+lucy_id+'.jpg')
-st.sidebar.image(image, caption=album,
+image = Image.open('img/'+track_id+'.jpg')
+st.sidebar.image(image, caption=track_album,
         use_column_width=True)
 
 # Central polar graph
 
+url = "https://open.spotify.com/track/"+str(track_id)
 st.write("Play: "+url)
 
 try:
-    lucy_features = spotifyAPI.get_features(lucy_id,token)
+    track_features = spotifyAPI.get_features(track_id,token)
 
-    features = spotifyAPI.parse_features(lucy_features)
+    features = spotifyAPI.parse_features(track_features)
 
     # st.write(features)
-
-    import numpy as np
-    import matplotlib.pyplot as plt
 
     labels= list(features)[:]
     stats= features.mean().tolist()
