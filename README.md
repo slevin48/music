@@ -75,3 +75,4 @@ Analysis of features to produce a polar plot
 * https://medium.com/analytics-vidhya/build-your-own-playlist-generator-with-spotifys-api-in-python-ceb883938ce4
 * https://towardsdatascience.com/get-your-spotify-streaming-history-with-python-d5a208bbcbd3
 * https://towardsdatascience.com/how-to-utilize-spotifys-api-and-create-a-user-interface-in-streamlit-5d8820db95d5
+* https://developer.spotify.com/community/showcase/spotify-audio-analysis/
