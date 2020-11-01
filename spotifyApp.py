@@ -35,6 +35,12 @@ image = Image.open('img/'+track_id+'.jpg')
 st.sidebar.image(image, caption=track_album,
         use_column_width=True)
 
+st.sidebar.write('Recommendations:')
+json_response = spotifyAPI.get_track_reco(track_id,token)
+for i in json_response['tracks']:
+    st.sidebar.write(f"\"{i['name']}\" by {i['artists'][0]['name']}")
+
+
 # Central polar graph
 
 url = "https://open.spotify.com/track/"+str(track_id)
