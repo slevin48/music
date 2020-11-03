@@ -8,9 +8,7 @@ import requests
 import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-
-clientId = '5430345c1c6e472fae6e3fb2c1399bce'
-clientSecret = 'ba32982d56ad4398834210941df54ccc'
+from secret import *
 
 os.environ["SPOTIPY_CLIENT_ID"] = clientId
 os.environ["SPOTIPY_CLIENT_SECRET"] = clientSecret
