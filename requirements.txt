@@ -1,0 +1,6 @@
+numpy==1.18.1
+spotipy==2.14.0
+matplotlib==3.3.2
+requests==2.24.0
+streamlit==0.67.1
+Pillow==8.0.1
