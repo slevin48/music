@@ -1,4 +1,4 @@
-# Spotify music recommendation
+# Spotify music recommendation [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/spotifyApp.py)
 
 ![feature-plot](spotifyData/features.svg)
 
