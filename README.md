@@ -78,3 +78,4 @@ Analysis of features to produce a polar plot
 * https://medium.com/deep-learning-turkey/build-your-own-spotify-playlist-of-best-playlist-recommendations-fc9ebe92826a
 * https://www.theverge.com/platform/amp/tldr/2018/2/5/16974194/spotify-recommendation-algorithm-playlist-hack-nelson
 * http://sortyourmusic.playlistmachinery.com/
+* https://towardsdatascience.com/k-means-clustering-and-pca-to-categorize-music-by-similar-audio-features-df09c93e8b64
