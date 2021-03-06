@@ -1,6 +1,74 @@
 # Spotify music recommendation [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/spotifyApp.py)
 
+![sergent-pepper](img/25yQPHgC35WNnnOUqFhgVR.jpg)
+
+
+**Content:**
+1. [Parse Streaming History](#parse)
+2. [Music Taste Analysis](#taste)
+3. [Get Recommendation](#reco)
+4. [Spotify API](#api)
+
+## 1. <a name="parse"></a>Parse Streaming History
+
+Streaming history can be retrieved from the Spotify profile as JSON, or through the spotipy functions [current_user_recently_played](https://spotipy.readthedocs.io/en/2.16.1/?highlight=current_user_recently_played#spotipy.client.Spotify.current_user_recently_played) or [current_user_saved_tracks](https://spotipy.readthedocs.io/en/2.16.1/?highlight=current_user_saved_tracks#spotipy.client.Spotify.current_user_saved_tracks)
+
+
+```python
+with open("recently_played_20210306.json","r") as f:
+    results = json.load(f)
+
+tracks = []
+for idx, item in enumerate(results['items']):
+    track = item['track']
+    tracks.append([idx, track['artists'][0]['name'], track['name']])
+
+trackDict = {"id":[], "artist":[],"name":[]}
+for idx, item in enumerate(results['items']):
+    track = item['track']
+    trackDict["id"].append(idx)
+    trackDict["artist"].append(track['artists'][0]['name'])
+    trackDict["name"].append(track['name'])
+    
+import pandas as pd
+trackDf = pd.DataFrame.from_dict(trackDict)
+```
+
+## 2. <a name="taste"></a>Music Taste Analysis
+
+Analysis of features to produce a polar plot
+
 ![feature-plot](spotifyData/features.svg)
+```python
+import spotifyAPI
+from secret import clientId,clientSecrettoken  = spotifyAPI.get_token(clientId,clientSecret)
+lucy_id = spotifyAPI.get_track_id2('Lucy in the Sky', token, artist = 'The Beatles’)
+
+url = "https://open.spotify.com/track/"+lucy_id
+import webbrowser
+webbrowser.open(url)
+
+import pandas as pd
+
+lucy_features = spotifyAPI.get_features(lucy_id,token)
+df = pd.DataFrame(lucy_features, index=[0])
+df_features = df.loc[: ,['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence’]]
+
+spotifyAPI.feature_plot(df_features)
+```
+
+
+## 3. <a name="reco"></a>Get Recommendation
+```python
+json_response = spotifyAPI.get_track_reco(lucy_id,token)
+uris =[]
+for i in json_response['tracks']:
+            uris.append(i)
+            print(f"\"{i['name']}\" by {i['artists'][0]['name']}")
+```
+
+
+## 4. <a name="api"></a>Spotify API
 
 This notebook leverages the Spotipy module to access the Spotify API:
 
@@ -25,7 +93,7 @@ https://spotipy.readthedocs.io/
 
 ![spotifyNoneUserData](spotifyNonUserData.png)
 
-## Scopes
+### Scopes
 
 * Images
   * [ugc-image-upload](https://developer.spotify.com/documentation/general/guides/scopes/#ugc-image-upload)
@@ -55,13 +123,6 @@ https://spotipy.readthedocs.io/
   * [user-follow-read](https://developer.spotify.com/documentation/general/guides/scopes/#user-follow-read)
   * [user-follow-modify](https://developer.spotify.com/documentation/general/guides/scopes/#user-follow-modify)
 
-## Parse Streaming History
-
-Streaming history can be retrieved from the Spotify profile as JSON.
-
-## Music Taste Analysis
-
-Analysis of features to produce a polar plot
 
 ## Resources
 * https://dev.to/mxdws/using-python-with-the-spotify-api-1d02
