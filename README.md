@@ -41,8 +41,9 @@ Analysis of features to produce a polar plot
 ![feature-plot](spotifyData/features.svg)
 ```python
 import spotifyAPI
-from secret import clientId,clientSecrettoken  = spotifyAPI.get_token(clientId,clientSecret)
-lucy_id = spotifyAPI.get_track_id2('Lucy in the Sky', token, artist = 'The Beatles’)
+from secret import clientId,clientSecret
+token  = spotifyAPI.get_token(clientId,clientSecret)
+lucy_id = spotifyAPI.get_track_id2('Lucy in the Sky', token, artist = 'The Beatles')
 
 url = "https://open.spotify.com/track/"+lucy_id
 import webbrowser
@@ -52,7 +53,7 @@ import pandas as pd
 
 lucy_features = spotifyAPI.get_features(lucy_id,token)
 df = pd.DataFrame(lucy_features, index=[0])
-df_features = df.loc[: ,['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence’]]
+df_features = df.loc[: ,['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence']]
 
 spotifyAPI.feature_plot(df_features)
 ```
@@ -74,7 +75,7 @@ This notebook leverages the Spotipy module to access the Spotify API:
 
 https://spotipy.readthedocs.io/
 
-* [Basic auth](basicMusic.ipynb)
+* [Basic auth](code/basicMusic.ipynb)
   * Search & Get track
   * Get features
   * Get recommendations
@@ -91,7 +92,7 @@ https://spotipy.readthedocs.io/
   )
   * Advanced recommendations based on seeds ([doc](https://developer.spotify.com/console/get-recommendations/))
 
-![spotifyNoneUserData](spotifyNonUserData.png)
+![spotifyNoneUserData](img/spotifyNonUserData.png)
 
 ### Scopes
 
