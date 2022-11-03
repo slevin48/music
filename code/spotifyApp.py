@@ -27,14 +27,10 @@ results = sp.search(q='track:'+txt,type='track')
 track_id = results['tracks']['items'][0]['id']
 track_album = results['tracks']['items'][0]['album']['name']
 img_album = results['tracks']['items'][0]['album']['images'][1]['url']
-r = requests.get(img_album)
-open('img/'+track_id+'.jpg', 'wb').write(r.content)
-
-image = Image.open('img/'+track_id+'.jpg')
-st.sidebar.image(image, caption=track_album,
+st.sidebar.image(img_album, caption=track_album,
         use_column_width=True)
 
-display = st.sidebar.selectbox('Display',('Features','Recommendations'))
+display = st.selectbox('Display',('Features','Recommendations'))
 
 if display == 'Features':
         
@@ -96,6 +92,5 @@ else:
  
     for i in json_response['tracks']:
         st.write(f"\"{i['name']}\" by {i['artists'][0]['name']}")
-        r = requests.get(i['album']['images'][2]['url'])
-        open('img/'+i['id']+'.jpg', 'wb').write(r.content)
-        st.image(Image.open('img/'+i['id']+'.jpg'), width=64)
+        st.image(i['album']['images'][1]['url'], width=300)
+

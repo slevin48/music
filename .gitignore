@@ -1,4 +1,6 @@
 spotifyData/chart_secrets.py
-__pycache__/spotifyAPI.cpython-37.pyc
-__pycache__/secret.cpython-37.pyc
+__pycache__/
 .cache-*
+code/secret.py
+secret.py
+env/
