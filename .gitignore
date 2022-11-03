@@ -4,3 +4,4 @@ __pycache__/
 code/secret.py
 secret.py
 env/
+code/.streamlit/secrets.toml

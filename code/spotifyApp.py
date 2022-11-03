@@ -3,12 +3,12 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-from PIL import Image
-import requests
 import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from secret import *
+# from secret import *
+clientId = st.secrets["clientId"]
+clientSecret = st.secrets["clientSecret"]
 
 os.environ["SPOTIPY_CLIENT_ID"] = clientId
 os.environ["SPOTIPY_CLIENT_SECRET"] = clientSecret

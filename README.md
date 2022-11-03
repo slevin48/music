@@ -1,4 +1,4 @@
-# Spotify music recommendation [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/spotifyApp.py)
+# Spotify music recommendation [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/code/spotifyApp.py)
 
 ![sergent-pepper](img/25yQPHgC35WNnnOUqFhgVR.jpg)
 
@@ -142,3 +142,5 @@ https://spotipy.readthedocs.io/
 * http://sortyourmusic.playlistmachinery.com/
 * https://towardsdatascience.com/k-means-clustering-and-pca-to-categorize-music-by-similar-audio-features-df09c93e8b64
 * https://towardsdatascience.com/interactive-machine-learning-and-data-visualization-with-streamlit-7108c5032144
+* http://druckhaus-hofmann.de/gallery/36-wj-june-2020.pdf
+* https://medium.com/swlh/music-genre-classification-using-transfer-learning-pytorch-ea1c23e36eb8
