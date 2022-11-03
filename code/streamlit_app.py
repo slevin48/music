@@ -9,6 +9,26 @@ from datetime import date, datetime, time, timedelta
 import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+from google.oauth2 import service_account
+from gsheetsdb import connect
+
+# Create a connection object.
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
+        "https://www.googleapis.com/auth/spreadsheets",
+    ],
+)
+conn = connect(credentials=credentials)
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache to only rerun when the query changes or after 10 min.
+@st.cache(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
 # from secret import *
 clientId = st.secrets["clientId"]
 clientSecret = st.secrets["clientSecret"]
@@ -39,8 +59,6 @@ st.title("Music 48 🎵")
 
 search = st.sidebar.text_input('Enter Track',value='Lucy In The Sky with Diamonds remastered')
 
-yt = st.sidebar.button('Find on Youtube')
-ft = st.sidebar.checkbox('Feature plot',value=True)
 
 results = sp.search(q='track:'+search,type='track')
 track_id = results['tracks']['items'][0]['id']
@@ -49,14 +67,17 @@ img_album = results['tracks']['items'][0]['album']['images'][1]['url']
 st.sidebar.image(img_album, caption=track_album,
         use_column_width=True)
 
-display = st.selectbox('Display',('Features','Recommendations'))
+display = st.selectbox('Display',('Song details','Recommendations','Playlist'))
 
-if display == 'Features':
-        
-    # Central features polar graph
+if display == 'Song details':
+    
+    # Main song panel
 
     url = "https://open.spotify.com/track/"+str(track_id)
     st.write("Play: "+url)
+    ft = st.checkbox('Feature plot',value=True)
+    yt = st.button('Find on Youtube')
+
     if yt:
         try:
             
@@ -70,7 +91,8 @@ if display == 'Features':
             title = video.title
             path = video.download('downloads')
             st.markdown("["+title+"]("+video.url+")")
-            st.video(path,format='video/mp4', start_time=0)
+            # if st.checkbox('Show video'):
+            #     st.video(path,format='video/mp4', start_time=0)
 
             # MoviePy processing
             my_clip = mp.VideoFileClip(path)
@@ -79,7 +101,7 @@ if display == 'Features':
 
             # Video to Audio
             my_clip.audio.write_audiofile("downloads/music.mp3")
-            st.text("Duration: "+format_time(duration))
+            # st.text("Duration: "+format_time(duration))
             st.audio("downloads/music.mp3", format='audio/mp3')
             with open("downloads/music.mp3", "rb") as file:
                 st.download_button("Download music",data=file,file_name=title+".mp3")
@@ -87,7 +109,8 @@ if display == 'Features':
             st.write('Did not find the track on Youtube')
 
     if ft:     
-        # Feature plot 
+        # Features polar plot 
+
         track_features = spotifyAPI.get_features(track_id,token)
 
         features = spotifyAPI.parse_features(track_features)
@@ -116,7 +139,7 @@ if display == 'Features':
 
         st.pyplot(fig)
 
-        if st.checkbox('What does those features mean?'):
+        if st.checkbox('What do those features mean?'):
             st.write("**acousticness**: Confidence measure from 0.0 to 1.0 on if a track is acoustic.")
             st.write("**danceability**: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.")
             st.write("**energy**: Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.")
@@ -127,7 +150,7 @@ if display == 'Features':
             st.write("**tempo**: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.")
             st.write("**valence**: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).")
 
-else:
+elif display == "Recommendations":
     
     # Central recommandation list
 
@@ -138,3 +161,13 @@ else:
         st.write(f"\"{i['name']}\" by {i['artists'][0]['name']}")
         st.image(i['album']['images'][1]['url'], width=300)
 
+
+else:
+    # Playlist
+    sheet_url = st.secrets["private_gsheets_url"]
+    rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
+    # Print results.
+    for row in rows:
+        json_response = spotifyAPI.get_track_reco(row.id,token)
+        st.write(f"{row.name} - {row.id}")
