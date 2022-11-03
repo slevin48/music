@@ -17,7 +17,7 @@ os.environ["SPOTIPY_REDIRECT_URI"] = "https://open.spotify.com/"
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 token  = spotifyAPI.get_token(clientId,clientSecret)
 
-st.title("Spotify App")
+st.title("Music 48 🎵")
 
 # Sidebar
 

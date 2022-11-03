@@ -144,3 +144,6 @@ https://spotipy.readthedocs.io/
 * https://towardsdatascience.com/interactive-machine-learning-and-data-visualization-with-streamlit-7108c5032144
 * http://druckhaus-hofmann.de/gallery/36-wj-june-2020.pdf
 * https://medium.com/swlh/music-genre-classification-using-transfer-learning-pytorch-ea1c23e36eb8
+* https://towardsdatascience.com/music-genre-classification-with-tensorflow-3de38f0d4dbb
+* https://towardsdatascience.com/machine-learning-and-recommender-systems-using-your-own-spotify-data-4918d80632e3
+* https://github.com/anthonyli358/spotify-recommender-systems/blob/main/recommender_playlists.ipynb
