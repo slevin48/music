@@ -37,7 +37,7 @@ st.title("Music 48 🎵")
 
 # Sidebar
 
-search = st.sidebar.text_input('Enter Track',value='Lucy in the Sky')
+search = st.sidebar.text_input('Enter Track',value='Lucy In The Sky with Diamonds remastered')
 
 yt = st.sidebar.button('Find on Youtube')
 ft = st.sidebar.checkbox('Feature plot',value=True)
