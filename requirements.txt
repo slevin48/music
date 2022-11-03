@@ -4,4 +4,7 @@ matplotlib
 requests
 streamlit
 Pillow
+pytube
+moviepy
+beautifulsoup4
 ipykernel

@@ -5,3 +5,5 @@ code/secret.py
 secret.py
 env/
 code/.streamlit/secrets.toml
+code/.cache
+code/downloads/

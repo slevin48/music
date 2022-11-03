@@ -1,7 +1,9 @@
-# Spotify music recommendation [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/code/spotifyApp.py)
+# Music 48 🎵[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/music/main/code/streamlit_app.py)
 
 ![sergent-pepper](img/25yQPHgC35WNnnOUqFhgVR.jpg)
 
+Started out as a Spotify music recommendation app
+***NEW***: Added features from [music-generator](https://github.com/slevin48/music-generator) 🎹
 
 **Content:**
 1. [Parse Streaming History](#parse)
