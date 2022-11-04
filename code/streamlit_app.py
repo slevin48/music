@@ -154,11 +154,11 @@ elif display == "Recommendations":
     
     # Central recommandation list
 
-    st.write('Recommendations:')
+    # st.write('Recommendations:')
     json_response = spotifyAPI.get_track_reco(track_id,token)
 
     for i in json_response['tracks']:
-        st.write(f"\"{i['name']}\" by {i['artists'][0]['name']}")
+        st.write(f"{i['name']} - {i['artists'][0]['name']}")
         st.image(i['album']['images'][1]['url'], width=300)
 
 
@@ -169,5 +169,8 @@ else:
 
     # Print results.
     for row in rows:
-        json_response = spotifyAPI.get_track_reco(row.id,token)
-        st.write(f"{row.name} - {row.id}")
+        track = sp.track(row.id)
+        # st.write(track)
+        st.write(track['name']+' - '+track['artists'][0]['name'])
+        st.image(track['album']['images'][1]['url'], width=300)
+        # st.write(f"{row.name} - {row.id}")
