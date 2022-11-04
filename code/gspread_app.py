@@ -53,11 +53,12 @@ album = track['album']['name']
 artist = track['artists'][0]['name']
 duration_ms = track['duration_ms']
 popularity = track['popularity']
+img_album = track['album']['images'][1]['url']
 external_url = track['external_urls']['spotify']
 track_id = track['id']
 
 if st.button("add to playlist"):
-    worksheet.append_row([name,album,artist,duration_ms,popularity,external_url,track_id])
+    worksheet.append_row([name,album,artist,duration_ms,popularity,img_album,external_url,track_id])
 
 
 # # Getting a Cell Value
@@ -79,5 +80,25 @@ if st.button("add to playlist"):
 # Getting All Values From a Worksheet as a Dataframe
 d = worksheet.get_all_records()
 df = pd.DataFrame(d)
-# st.table(df)
-st.dataframe(df)
+
+if st.checkbox("Playlist table"):
+    @st.cache
+    def convert_df(df):
+        return df.to_csv().encode('utf-8')
+    # st.table(df)
+    st.dataframe(df)
+        
+    csv = convert_df(df)
+
+    st.download_button(
+    "download",
+    csv,
+    "playlist.csv",
+    "text/csv",
+    key='download-csv'
+    )
+
+for index,row in df.iterrows():
+    # st.write(track)
+    st.write(row['name']+' - '+row['artist'])
+    st.image(row['img_album'], width=300)
