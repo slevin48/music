@@ -11,6 +11,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from google.oauth2 import service_account
 import gspread
+import textwrap, random
 
 # Setup Spotify
 
@@ -45,7 +46,11 @@ try:
 except OSError as error:
     print(error)
 
-st.title("Music 48 🎵")
+
+mjstr = "🤘🎼🎵🎶 ♩♪♫♬♭♮♯ø 🎤🎸🎻🎷🎺📯🎹📻 🎧🎙🎚🎛📻📣📢🔊🔉🔈"
+mjlist = textwrap.wrap(mjstr,width=1)
+mj = random.choice(mjlist)
+st.title("Music 48 "+mj)
 
 # Sidebar
 

@@ -3,6 +3,7 @@
 ![sergent-pepper](img/25yQPHgC35WNnnOUqFhgVR.jpg)
 
 Started out as a Spotify music recommendation app
+
 ***NEW***: Added features from [music-generator](https://github.com/slevin48/music-generator) 🎹
 
 **Content:**
