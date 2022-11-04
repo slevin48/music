@@ -9,3 +9,4 @@ moviepy
 beautifulsoup4
 ipykernel
 gsheetsdb
+gspread
