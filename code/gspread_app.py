@@ -35,7 +35,7 @@ track_album = track['album']['name']
 img_album = track['album']['images'][1]['url']
 st.sidebar.image(img_album, caption=track_album)
 # st.sidebar.write(track['name'])
-# st.sidebar.write(track)
+# st.write(track)
 # st.sidebar.write(track['name']+' - '+track['artists'][0]['name'])
 
 
@@ -45,7 +45,20 @@ sh = gc.open_by_url(sheet_url)
 worksheet = sh.sheet1
 
 st.title("Playlist")
-# Print results.
+# Print results
+
+# Append row
+name = track['name']
+album = track['album']['name']
+artist = track['artists'][0]['name']
+duration_ms = track['duration_ms']
+popularity = track['popularity']
+external_url = track['external_urls']['spotify']
+track_id = track['id']
+
+if st.button("add to playlist"):
+    worksheet.append_row([name,album,artist,duration_ms,popularity,external_url,track_id])
+
 
 # # Getting a Cell Value
 # val = worksheet.cell(1, 2).value
