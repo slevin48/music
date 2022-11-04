@@ -75,7 +75,6 @@ if display == 'Song details':
 
     url = "https://open.spotify.com/track/"+str(track_id)
     st.write("Play: "+url)
-    ft = st.checkbox('Feature plot',value=True)
     yt = st.button('Find on Youtube')
 
     if yt:
@@ -107,6 +106,8 @@ if display == 'Song details':
                 st.download_button("Download music",data=file,file_name=title+".mp3")
         except:
             st.write('Did not find the track on Youtube')
+    
+    ft = st.checkbox('Feature plot',value=True)
 
     if ft:     
         # Features polar plot 
