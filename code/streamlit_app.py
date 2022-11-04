@@ -1,5 +1,5 @@
 import streamlit as st
-# import pandas as pd
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pytube
@@ -10,37 +10,29 @@ import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from google.oauth2 import service_account
-from gsheetsdb import connect
+import gspread
 
-# Create a connection object.
+# Setup Spotify
+
+# from secret import *
+clientId = st.secrets["clientId"]
+clientSecret = st.secrets["clientSecret"]
+os.environ["SPOTIPY_CLIENT_ID"] = clientId
+os.environ["SPOTIPY_CLIENT_SECRET"] = clientSecret
+os.environ["SPOTIPY_REDIRECT_URI"] = "https://open.spotify.com/"
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
+token  = spotifyAPI.get_token(clientId,clientSecret)
+
+
+# Setup Gspread
+
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"],
     scopes=[
         "https://www.googleapis.com/auth/spreadsheets",
     ],
 )
-conn = connect(credentials=credentials)
-
-# Perform SQL query on the Google Sheet.
-# Uses st.cache to only rerun when the query changes or after 10 min.
-@st.cache(ttl=600)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
-
-# from secret import *
-clientId = st.secrets["clientId"]
-clientSecret = st.secrets["clientSecret"]
-
-# Setup
-
-os.environ["SPOTIPY_CLIENT_ID"] = clientId
-os.environ["SPOTIPY_CLIENT_SECRET"] = clientSecret
-os.environ["SPOTIPY_REDIRECT_URI"] = "https://open.spotify.com/"
-
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
-token  = spotifyAPI.get_token(clientId,clientSecret)
+gc = gspread.authorize(credentials)
 
 def format_time(d):
     
@@ -60,11 +52,19 @@ st.title("Music 48 🎵")
 search = st.sidebar.text_input('Enter Track',value='Lucy In The Sky with Diamonds remastered')
 
 
-results = sp.search(q='track:'+search,type='track')
-track_id = results['tracks']['items'][0]['id']
-track_album = results['tracks']['items'][0]['album']['name']
-img_album = results['tracks']['items'][0]['album']['images'][1]['url']
-st.sidebar.image(img_album, caption=track_album,
+results = sp.search(q=search,type='track')
+
+track = results['tracks']['items'][0]
+name = track['name']
+album = track['album']['name']
+artist = track['artists'][0]['name']
+duration_ms = track['duration_ms']
+popularity = track['popularity']
+img_album = track['album']['images'][1]['url']
+external_url = track['external_urls']['spotify']
+track_id = track['id']
+
+st.sidebar.image(img_album, caption=album,
         use_column_width=True)
 
 display = st.selectbox('Display',('Song details','Recommendations','Playlist'))
@@ -165,12 +165,36 @@ elif display == "Recommendations":
 else:
     # Playlist
     sheet_url = st.secrets["private_gsheets_url"]
-    rows = run_query(f'SELECT * FROM "{sheet_url}"')
+    sh = gc.open_by_url(sheet_url)
+    worksheet = sh.sheet1
+    
+    # Append row
+    if st.button("add to playlist"):
+        worksheet.append_row([name,album,artist,duration_ms,popularity,img_album,external_url,track_id])
 
-    # Print results.
-    for row in rows:
-        track = sp.track(row.id)
+
+    # Getting All Values From a Worksheet as a Dataframe
+    d = worksheet.get_all_records()
+    df = pd.DataFrame(d)
+
+    if st.checkbox("Playlist table"):
+        @st.cache
+        def convert_df(df):
+            return df.to_csv().encode('utf-8')
+        # st.table(df)
+        st.dataframe(df)
+            
+        csv = convert_df(df)
+
+        st.download_button(
+        "download",
+        csv,
+        "playlist.csv",
+        "text/csv",
+        key='download-csv'
+        )
+
+    for index,row in df.iterrows():
         # st.write(track)
-        st.write(track['name']+' - '+track['artists'][0]['name'])
-        st.image(track['album']['images'][1]['url'], width=300)
-        # st.write(f"{row.name} - {row.id}")
+        st.write(row['name']+' - '+row['artist'])
+        st.image(row['img_album'], width=300)
