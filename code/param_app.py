@@ -13,21 +13,22 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 
 st.title('Param app')
 
-#When loading page without param
-param = st.experimental_get_query_params()
-
-if 'song' in param:
-    song = param['song'][0]
-else:
-    st.experimental_set_query_params(song = "Lucy in the Sky")
-    song = "Lucy in the Sky"
-
 st.write(param)
 
-# Text Input
-search = st.text_input('Enter Track',value=song)
-st.experimental_set_query_params(song = search)
-param = st.experimental_get_query_params()
+#When loading page with param
+try:
+    param = st.experimental_get_query_params()
+    song = param['song'][0]
+    search = st.text_input('Enter Track',value=song)
+    st.experimental_set_query_params(song = search)
+else:
+    st.experimental_set_query_params(song = "Lucy in the Sky")
+    param = st.experimental_get_query_params()
+    song = param['song'][0]
+    search = st.text_input('Enter Track',value=song)
+    st.experimental_set_query_params(song = search)
+
+
 st.write(param)
 results = sp.search(q=search,type='track')
 
