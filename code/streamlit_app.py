@@ -35,11 +35,28 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 gc = gspread.authorize(credentials)
 
+# Get playlist
+sheet_url = st.secrets["private_gsheets_url"]
+sh = gc.open_by_url(sheet_url)
+worksheet = sh.sheet1
+
+# Getting All Values From a Worksheet as a Dataframe
+d = worksheet.get_all_records()
+df = pd.DataFrame(d)
+
 def format_time(d):
     
     dt = datetime.combine(date.today(), time(0, 0)) + timedelta(seconds=d)
     return "%02d:%02d:%02d" % (dt.hour,dt.minute,dt.second)
 
+@st.cache
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+@st.cache
+def random_song(df):
+    s = df.sample()
+    return s['name'].values[0]
 
 try:
     os.mkdir('downloads')
@@ -54,8 +71,8 @@ st.title("Music 48 "+mj)
 
 # Sidebar
 
-search = st.sidebar.text_input('Enter Track',value='Lucy In The Sky with Diamonds remastered')
-
+input = random_song(df)
+search = st.sidebar.text_input('Enter Track',value=input)
 
 results = sp.search(q=search,type='track')
 
@@ -170,23 +187,13 @@ elif display == "Recommendations":
 
 else:
     # Playlist
-    sheet_url = st.secrets["private_gsheets_url"]
-    sh = gc.open_by_url(sheet_url)
-    worksheet = sh.sheet1
-    
+
     # Append row
     if st.button("add to playlist"):
         worksheet.append_row([name,album,artist,duration_ms,popularity,img_album,external_url,track_id])
 
-
-    # Getting All Values From a Worksheet as a Dataframe
-    d = worksheet.get_all_records()
-    df = pd.DataFrame(d)
-
     if st.checkbox("Playlist table"):
-        @st.cache
-        def convert_df(df):
-            return df.to_csv().encode('utf-8')
+        
         # st.table(df)
         st.dataframe(df)
             
