@@ -177,11 +177,11 @@ elif display == "Recommendations":
     
     # Central recommandation list
 
-    # st.write('Recommendations:')
     json_response = spotifyAPI.get_track_reco(track_id,token)
-
+    # st.write(json_response['tracks'][0])
     for i in json_response['tracks']:
-        st.write(f"{i['name']} - {i['artists'][0]['name']}")
+        st.write('['+i['name']+' - '+i['artists'][0]['name']+']('+i['external_urls']['spotify']+')')
+        # st.write(f"{i['name']} - {i['artists'][0]['name']}")
         st.image(i['album']['images'][1]['url'], width=300)
 
 
@@ -213,5 +213,5 @@ else:
 
     for index,row in df[::-1].iterrows():
         # st.write(track)
-        st.write(row['name']+' - '+row['artist'])
+        st.write('['+row['name']+' - '+row['artist']+']('+row['external_url']+')')
         st.image(row['img_album'], width=300)
