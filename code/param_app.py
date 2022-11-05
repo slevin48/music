@@ -13,7 +13,6 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 
 st.title('Param app')
 
-st.write(param)
 
 #When loading page with param
 try:
@@ -21,7 +20,8 @@ try:
     song = param['song'][0]
     search = st.text_input('Enter Track',value=song)
     st.experimental_set_query_params(song = search)
-except:
+
+except: # catch exception and set query param to predefined value
     st.experimental_set_query_params(song = "Lucy in the Sky")
     param = st.experimental_get_query_params()
     song = param['song'][0]
