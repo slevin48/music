@@ -192,6 +192,10 @@ else:
     if st.button("add to playlist"):
         worksheet.append_row([name,album,artist,duration_ms,popularity,img_album,external_url,track_id])
 
+    # Getting All Values From a Worksheet as a Dataframe
+    d = worksheet.get_all_records()
+    df = pd.DataFrame(d)
+
     if st.checkbox("Playlist table"):
         
         # st.table(df)
