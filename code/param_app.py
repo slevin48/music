@@ -24,9 +24,8 @@ if param:
     except:
         pass
 
-search = st.text_input('Enter Track',value=song)
-st.experimental_set_query_params(song = search,key="qp", on_change=update_params)
-
+search = st.text_input('Enter Track',value=song,key="qp", on_change=update_params)
+st.experimental_set_query_params(song = search)
 
 # display for debugging purposes
 st.write('---', st.experimental_get_query_params())
