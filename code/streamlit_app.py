@@ -13,6 +13,8 @@ from google.oauth2 import service_account
 import gspread
 import textwrap, random
 
+st.set_page_config(page_title="Music 48",page_icon="🎵",initial_sidebar_state="expanded")
+
 # Setup Spotify
 
 # from secret import *
@@ -43,11 +45,6 @@ worksheet = sh.sheet1
 # Getting All Values From a Worksheet as a Dataframe
 d = worksheet.get_all_records()
 df = pd.DataFrame(d)
-
-def format_time(d):
-    
-    dt = datetime.combine(date.today(), time(0, 0)) + timedelta(seconds=d)
-    return "%02d:%02d:%02d" % (dt.hour,dt.minute,dt.second)
 
 @st.cache
 def convert_df(df):
@@ -135,7 +132,6 @@ try:
 
                 # Video to Audio
                 my_clip.audio.write_audiofile("downloads/music.mp3")
-                # st.text("Duration: "+format_time(duration))
                 st.audio("downloads/music.mp3", format='audio/mp3')
                 with open("downloads/music.mp3", "rb") as file:
                     st.download_button("Download music",data=file,file_name=title+".mp3")
