@@ -229,5 +229,5 @@ try:
             st.write('['+row['name']+' - '+row['artist']+']('+row['external_url']+')')
             st.image(row['img_album'], width=300)
 
-except spotipy.SpotifyException:
-    st.write('No search query')
+except:
+    st.write('Search not found')
