@@ -14,7 +14,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 st.title('Param app')
 
 def update_params():
-    st.experimental_set_query_params(option=st.session_state.qp)
+    st.experimental_set_query_params(song=st.session_state.qp)
 
 param = st.experimental_get_query_params()
 song = "Lucy in the Sky"
