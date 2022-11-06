@@ -193,7 +193,9 @@ try:
         json_response = spotifyAPI.get_track_reco(track_id,token)
         # st.write(json_response['tracks'][0])
         for i in json_response['tracks']:
-            st.write('['+i['name']+' - '+i['artists'][0]['name']+']('+i['external_urls']['spotify']+')')
+            link = 'https://music48.streamlit.app/?song='+i['name'].replace(" ","+")
+            st.markdown('['+i['name']+']('+link+')',unsafe_allow_html=True)
+            # st.write('['+i['name']+' - '+i['artists'][0]['name']+']('+i['external_urls']['spotify']+')')
             # st.write(f"{i['name']} - {i['artists'][0]['name']}")
             st.image(i['album']['images'][1]['url'], width=300)
 
@@ -226,7 +228,9 @@ try:
 
         for index,row in df[::-1].iterrows():
             # st.write(track)
-            st.write('['+row['name']+' - '+row['artist']+']('+row['external_url']+')')
+            link = 'https://music48.streamlit.app/?song='+row['name'].replace(" ","+")
+            st.markdown('['+row['name']+']('+link+')',unsafe_allow_html=True)
+            # st.write('['+row['name']+' - '+row['artist']+']('+row['external_url']+')')
             st.image(row['img_album'], width=300)
 
 except:
