@@ -13,21 +13,23 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 
 st.title('Param app')
 
+def update_params():
+    st.experimental_set_query_params(option=st.session_state.qp)
 
-#When loading page with param
-try:
-    param = st.experimental_get_query_params()
-    song = param['song'][0]
-    search = st.text_input('Enter Track',value=song)
-    st.experimental_set_query_params(song = search)
+param = st.experimental_get_query_params()
+song = "Lucy in the Sky"
+if query_params:
+    try:
+        song = param['song'][0]
+    except:
+        pass
 
-except: # catch exception and set query param to predefined value
-    st.experimental_set_query_params(song = "Lucy in the Sky")
-    param = st.experimental_get_query_params()
-    song = param['song'][0]
-    search = st.text_input('Enter Track',value=song)
-    st.experimental_set_query_params(song = search)
+search = st.text_input('Enter Track',value=song)
+st.experimental_set_query_params(song = search,key="qp", on_change=update_params)
 
+
+# display for debugging purposes
+st.write('---', st.experimental_get_query_params())
 
 st.write(param)
 results = sp.search(q=search,type='track')
