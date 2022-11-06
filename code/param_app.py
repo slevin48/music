@@ -18,7 +18,7 @@ def update_params():
 
 param = st.experimental_get_query_params()
 song = "Lucy in the Sky"
-if query_params:
+if param:
     try:
         song = param['song'][0]
     except:
