@@ -58,6 +58,19 @@ def random_song(df):
     s = df.sample()
     return s['name'].values[0]
 
+def update_params():
+    st.experimental_set_query_params(song=st.session_state.qp)
+
+param = st.experimental_get_query_params()
+# song = "Lucy in the Sky"
+song = random_song(df)
+
+if param:
+    try:
+        song = param['song'][0]
+    except:
+        pass
+
 try:
     os.mkdir('downloads')
 except OSError as error:
@@ -71,8 +84,8 @@ st.title("Music 48 "+mj)
 
 # Sidebar
 
-input = random_song(df)
-search = st.sidebar.text_input('Enter Track',value=input)
+search = st.sidebar.text_input('Enter Track',value=song,key='qp',on_change=update_params)
+st.experimental_set_query_params(song = search)
 
 results = sp.search(q=search,type='track')
 
