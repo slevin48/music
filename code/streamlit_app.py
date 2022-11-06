@@ -106,7 +106,8 @@ try:
         # Main song panel
 
         url = "https://open.spotify.com/track/"+str(track_id)
-        st.write("Play: "+url)
+        # st.markdown('![spoticon](../code/spoticon.png)')
+        st.markdown('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width=20>Play: '+url,unsafe_allow_html=True)
         yt = st.button('Find on Youtube')
 
         if yt:
@@ -190,8 +191,10 @@ try:
         # st.write(json_response['tracks'][0])
         for i in json_response['tracks']:
             link = 'https://music48.streamlit.app/?song='+i['name'].replace(" ","+")
-            st.markdown('<a href="'+link+'" target="_self">'+i['name']+'</a>',unsafe_allow_html=True)
-            # st.write('['+i['name']+' - '+i['artists'][0]['name']+']('+i['external_urls']['spotify']+')')
+            spotlink = i['external_urls']['spotify']
+            st.markdown('<a href="'+link+'" target="_self">'+i['name']+'</a>    <a href="'+spotlink+'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width=20></a>',unsafe_allow_html=True)
+            # st.markdown('<a href="'+link+'" target="_self">'+i['name']+'</a> - <a href="'+spotlink+'">▶️</a>',unsafe_allow_html=True)
+            # st.write('[▶️]('+i['external_urls']['spotify']+')')
             # st.write(f"{i['name']} - {i['artists'][0]['name']}")
             st.image(i['album']['images'][1]['url'], width=300)
 
@@ -225,8 +228,10 @@ try:
         for index,row in df[::-1].iterrows():
             # st.write(track)
             link = 'https://music48.streamlit.app/?song='+row['name'].replace(" ","+")
-            st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>',unsafe_allow_html=True)
-            # st.write('['+row['name']+' - '+row['artist']+']('+row['external_url']+')')
+            spotlink = row['external_url']
+            st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>   <a href="'+spotlink+'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width=20></a>',unsafe_allow_html=True)
+            # st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>',unsafe_allow_html=True)
+            # st.markdown('[![spotify](../img/spoticon.png)]('+row['external_urls']['spotify']+')')
             st.image(row['img_album'], width=300)
 
 except:
