@@ -3,9 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import pytube
-import moviepy.editor as mp
 import os
-from datetime import date, datetime, time, timedelta
 import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -115,26 +113,22 @@ try:
                 
                 r = pytube.Search(search).results
                 # st.write(r[0].streams.first().title)
-                # t = [i.streams.first().title for i in r]
-                # st.radio("Search results",t)
-                video = r[0].streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
-                    
+                # video = r[0].streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+                video = r[0].streams.filter(only_audio=True).first()   
                 # st.write(video)
                 title = video.title
-                path = video.download('downloads')
+                out_file = video.download('downloads')
                 st.markdown("["+title+"]("+video.url+")")
                 # if st.checkbox('Show video'):
                 #     st.video(path,format='video/mp4', start_time=0)
 
-                # MoviePy processing
-                my_clip = mp.VideoFileClip(path)
-                duration = int(my_clip.duration)
-                minutes, seconds = divmod(duration, 60)
-
                 # Video to Audio
-                my_clip.audio.write_audiofile("downloads/music.mp3")
-                st.audio("downloads/music.mp3", format='audio/mp3')
-                with open("downloads/music.mp3", "rb") as file:
+                base, ext = os.path.splitext(out_file)
+                new_file = base + '.mp3'
+                if not os.path.exists(new_file):
+                    os.rename(out_file, new_file)
+                st.audio(new_file, format='audio/mp3')
+                with open(new_file, "rb") as file:
                     st.download_button("Download music",data=file,file_name=title+".mp3")
             except:
                 st.write('Did not find the track on Youtube')
