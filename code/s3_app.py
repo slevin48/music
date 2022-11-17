@@ -1,5 +1,10 @@
 import streamlit as st
-import boto3
+import boto3, os
+
+try:
+    os.mkdir('downloads')
+except OSError as error:
+    print(error)
 
 s3_client = boto3.client('s3',aws_access_key_id = st.secrets["aws"]["aws_access_key_id"],
                     aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"])
