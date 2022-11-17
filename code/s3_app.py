@@ -10,10 +10,7 @@ def s3download(music):
 st.set_page_config(page_title="S3 Music",page_icon="🎵")
 st.title("S3 Music 🎵")
 
-s3 = boto3.resource('s3')
-bucket48 = s3.Bucket('music48')
-
-f = [file.key for file in bucket48.objects.filter(Prefix="downloads/").all()]
+f = [key['Key'] for key in s3_client.list_objects(Bucket='music48',Prefix="downloads/")['Contents']]
 m = st.selectbox("Select Music",f,
             format_func = lambda x : x.replace("downloads/","").replace(".mp3",""))
 
