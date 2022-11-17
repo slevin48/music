@@ -7,6 +7,6 @@ Pillow
 pytube
 beautifulsoup4
 ipykernel
-gsheetsdb
 gspread
 st_clickable_images
+boto3
