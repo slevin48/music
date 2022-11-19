@@ -10,3 +10,4 @@ ipykernel
 gspread
 st_clickable_images
 boto3
+s3fs

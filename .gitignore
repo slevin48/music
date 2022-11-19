@@ -7,3 +7,4 @@ env/
 code/.streamlit/secrets.toml
 code/.cache
 code/downloads/
+code/downloads.zip
