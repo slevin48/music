@@ -98,7 +98,7 @@ if st.checkbox("Playlist table"):
     key='download-csv'
     )
 
-for index,row in df.iterrows():
+for index,row in df[::-1].iterrows():
     # st.write(track)
     st.write(row['name']+' - '+row['artist'])
     st.image(row['img_album'], width=300)
