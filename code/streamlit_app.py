@@ -4,11 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pytube
 import os
+import boto3
 import spotifyAPI
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from google.oauth2 import service_account
-import gspread
 import textwrap, random
 
 st.set_page_config(page_title="Music 48",page_icon="🎵",initial_sidebar_state="expanded")
@@ -25,24 +24,18 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 token  = spotifyAPI.get_token(clientId,clientSecret)
 
 
-# Setup Gspread
+# Setup S3 
 
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
-gc = gspread.authorize(credentials)
+s3_client = boto3.client('s3',aws_access_key_id = st.secrets["aws"]["aws_access_key_id"],
+                    aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"])
 
-# Get playlist
-sheet_url = st.secrets["private_gsheets_url"]
-sh = gc.open_by_url(sheet_url)
-worksheet = sh.sheet1
+s3_bucket = "music48"
+playlist = "playlist"
+object_name = "Playlists/"+playlist+".csv"
+file_name = "downloads/"+playlist+".csv"
+s3_client.download_file(s3_bucket, object_name,file_name)
 
-# Getting All Values From a Worksheet as a Dataframe
-d = worksheet.get_all_records()
-df = pd.DataFrame(d)
+df = pd.read_csv(file_name,index_col=0)
 
 @st.cache
 def convert_df(df):
@@ -94,8 +87,7 @@ try:
     external_url = track['external_urls']['spotify']
     track_id = track['id']
 
-    st.sidebar.image(img_album, caption=album,
-            use_column_width=True)
+    st.sidebar.image(img_album, caption=album)
 
     display = st.selectbox('Display',('Song details','Recommendations','Playlist'))
 
@@ -198,12 +190,13 @@ try:
 
         # Append row
         if st.button("add to playlist"):
-            worksheet.append_row([name,album,artist,duration_ms,popularity,img_album,external_url,track_id])
-
-        # Getting All Values From a Worksheet as a Dataframe
-        d = worksheet.get_all_records()
-        df = pd.DataFrame(d)
-
+            df2 = pd.Series([name,album,artist,duration_ms,popularity,img_album,external_url,track_id],
+                    index=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
+            # st.dataframe(df2)
+            df = df.append(df2,ignore_index=True) # Deprecated
+            # df = pd.concat([df,df2],ignore_index=True)
+            df.to_csv(file_name)
+            s3_client.upload_file(file_name, s3_bucket, object_name)
         if st.checkbox("Playlist table"):
             
             # st.table(df)
