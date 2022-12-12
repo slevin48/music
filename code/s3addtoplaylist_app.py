@@ -25,9 +25,6 @@ s3_bucket = "music48"
 st.set_page_config(page_title="S3 Add to Playlist",page_icon="🎵")
 st.title("S3 Add to Playlist 🎵")
 
-@st.cache
-def read_playlist(file_name):
-    return pd.read_csv(file_name,index_col=0)
 
 # Sidebar
 
@@ -52,7 +49,7 @@ if m != "Playlists/":
 
     s3_client.download_file(s3_bucket, object_name,file_name)
 
-    df = read_playlist(file_name)
+    df = pd.read_csv(file_name,index_col=0)
 
     # Append row
     name = track['name']
