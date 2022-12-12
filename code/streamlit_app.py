@@ -187,39 +187,41 @@ try:
 
     else:
         # Playlist
+        pwd = st.sidebar.text_input("Playlist password")
+        if pwd == st.secrets['playlist_pwd']:
 
-        # Append row
-        if st.button("add to playlist"):
-            df2 = pd.Series([name,album,artist,duration_ms,popularity,img_album,external_url,track_id],
-                    index=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
-            # st.dataframe(df2)
-            df = df.append(df2,ignore_index=True) # Deprecated
-            # df = pd.concat([df,df2],ignore_index=True)
-            df.to_csv(file_name)
-            s3_client.upload_file(file_name, s3_bucket, object_name)
-        if st.checkbox("Playlist table"):
-            
-            # st.table(df)
-            st.dataframe(df)
+            # Append row
+            if st.button("add to playlist"):
+                df2 = pd.Series([name,album,artist,duration_ms,popularity,img_album,external_url,track_id],
+                        index=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
+                # st.dataframe(df2)
+                df = df.append(df2,ignore_index=True) # Deprecated
+                # df = pd.concat([df,df2],ignore_index=True)
+                df.to_csv(file_name)
+                s3_client.upload_file(file_name, s3_bucket, object_name)
+            if st.checkbox("Playlist table"):
                 
-            csv = convert_df(df)
+                # st.table(df)
+                st.dataframe(df)
+                    
+                csv = convert_df(df)
 
-            st.download_button(
-            "download",
-            csv,
-            "playlist.csv",
-            "text/csv",
-            key='download-csv'
-            )
+                st.download_button(
+                "download",
+                csv,
+                "playlist.csv",
+                "text/csv",
+                key='download-csv'
+                )
 
-        for index,row in df[::-1].iterrows():
-            # st.write(track)
-            link = 'https://music48.streamlit.app/?song='+row['name'].replace(" ","+")
-            spotlink = row['external_url']
-            st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>   <a href="'+spotlink+'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width=20></a>',unsafe_allow_html=True)
-            # st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>',unsafe_allow_html=True)
-            # st.markdown('[![spotify](../img/spoticon.png)]('+row['external_urls']['spotify']+')')
-            st.image(row['img_album'], width=300)
+            for index,row in df[::-1].iterrows():
+                # st.write(track)
+                link = 'https://music48.streamlit.app/?song='+row['name'].replace(" ","+")
+                spotlink = row['external_url']
+                st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>   <a href="'+spotlink+'"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png" width=20></a>',unsafe_allow_html=True)
+                # st.markdown('<a href="'+link+'" target="_self">'+row['name']+'</a>',unsafe_allow_html=True)
+                # st.markdown('[![spotify](../img/spoticon.png)]('+row['external_urls']['spotify']+')')
+                st.image(row['img_album'], width=300)
 
 except:
     st.write('Search not found')
