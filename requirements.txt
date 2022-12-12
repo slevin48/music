@@ -9,5 +9,6 @@ beautifulsoup4
 ipykernel
 gspread
 st_clickable_images
+streamlit-aggrid
 boto3
 s3fs
