@@ -48,7 +48,7 @@ m = st.selectbox("Select Music",f,
 
 if m != "Playlists/":
     object_name = m
-    file_name = "downloads/"+m.replace("Playlists/","")+".csv"
+    file_name = "downloads/"+m.replace("Playlists/","")
 
     s3_client.download_file(s3_bucket, object_name,file_name)
 
@@ -70,6 +70,8 @@ if m != "Playlists/":
         # st.dataframe(df2)
         df = df.append(df2,ignore_index=True) # Deprecated
         # df = pd.concat([df,df2],ignore_index=True)
+        df.to_csv(file_name)
+        s3_client.upload_file(file_name, s3_bucket, object_name)
 
     if st.checkbox("Playlist Table"):
         st.dataframe(df)
