@@ -24,6 +24,12 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials())
 token  = spotifyAPI.get_token(clientId,clientSecret)
 
 
+try:
+    os.mkdir('downloads')
+except OSError as error:
+    print(error)
+
+
 # Setup S3 
 
 s3_client = boto3.client('s3',aws_access_key_id = st.secrets["aws"]["aws_access_key_id"],
@@ -58,12 +64,6 @@ if param:
         song = param['song'][0]
     except:
         pass
-
-try:
-    os.mkdir('downloads')
-except OSError as error:
-    print(error)
-
 
 mjstr = "🤘🎼🎵🎶 ♩♪♫♬♭♮♯ø 🎤🎸🎻🎷🎺📯🎹📻 🎧🎙🎚🎛📻📣📢🔊🔉🔈"
 mjlist = textwrap.wrap(mjstr,width=1)
