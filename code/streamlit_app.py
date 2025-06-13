@@ -43,11 +43,11 @@ s3_client.download_file(s3_bucket, object_name,file_name)
 
 df = pd.read_csv(file_name,index_col=0)
 
-@st.cache
+@st.cache_data
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
-@st.cache
+@st.cache_data
 def random_song(df):
     s = df.sample()
     return s['name'].values[0]
