@@ -53,17 +53,14 @@ def random_song(df):
     return s['name'].values[0]
 
 def update_params():
-    st.set_query_params(song=st.session_state.qp)
+    st.query_params['song']=st.session_state.qp
 
-param = st.get_query_params()
-# song = "Lucy in the Sky"
-song = random_song(df)
 
-if param:
-    try:
-        song = param['song'][0]
-    except:
-        pass
+if 'song' in st.query_params:
+    song = st.query_params['song']
+else:
+    song = random_song(df)
+
 
 mjstr = "🤘🎼🎵🎶 ♩♪♫♬♭♮♯ø 🎤🎸🎻🎷🎺📯🎹📻 🎧🎙🎚🎛📻📣📢🔊🔉🔈"
 mjlist = textwrap.wrap(mjstr,width=1)
@@ -73,7 +70,7 @@ st.title("Music 48 "+mj)
 # Sidebar
 
 search = st.sidebar.text_input('Enter Track',value=song,key='qp',on_change=update_params)
-st.set_query_params(song = search)
+st.query_params['song'] = search
 try:
     results = sp.search(q=search,type='track')
 

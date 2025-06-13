@@ -1,6 +1,7 @@
 spotifyData/chart_secrets.py
 __pycache__/
 .cache-*
+.cache
 code/secret.py
 secret.py
 env/
@@ -8,3 +9,4 @@ code/.streamlit/secrets.toml
 code/.cache
 code/downloads/
 code/downloads.zip
+.streamlit/secrets.toml
