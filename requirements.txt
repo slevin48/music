@@ -4,7 +4,7 @@ matplotlib
 requests
 streamlit
 Pillow
-pytube
+pytubefix
 beautifulsoup4
 ipykernel
 gspread

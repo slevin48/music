@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import pytube
+import pytubefix
 import os
 import boto3
 import spotifyAPI
@@ -100,7 +100,7 @@ try:
         if yt:
             try:
                 
-                r = pytube.Search(search).results
+                r = pytubefix.Search(search).results
                 # st.write(r[0].streams.first().title)
                 # video = r[0].streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
                 video = r[0].streams.filter(only_audio=True).first()   
