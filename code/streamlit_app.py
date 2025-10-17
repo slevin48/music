@@ -30,18 +30,14 @@ except OSError as error:
     print(error)
 
 
-# Setup S3 
-
-s3_client = boto3.client('s3',aws_access_key_id = st.secrets["aws"]["aws_access_key_id"],
-                    aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"])
-
-s3_bucket = "music48"
+# Playlist file (local fallback). S3 interactions moved into the Playlist section.
 playlist = "playlist"
-object_name = "Playlists/"+playlist+".csv"
 file_name = "downloads/"+playlist+".csv"
-s3_client.download_file(s3_bucket, object_name,file_name)
-
-df = pd.read_csv(file_name,index_col=0)
+if os.path.exists(file_name):
+    df = pd.read_csv(file_name, index_col=0)
+else:
+    # create empty dataframe with expected columns so random_song and other code can run
+    df = pd.DataFrame(columns=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
 
 @st.cache_data
 def convert_df(df):
@@ -89,7 +85,6 @@ try:
     display = st.selectbox('Display',('Song details','Recommendations','Playlist'))
 
     if display == 'Song details':
-        
         # Main song panel
 
         url = "https://open.spotify.com/track/"+str(track_id)
@@ -187,15 +182,31 @@ try:
         pwd = st.sidebar.text_input("Playlist password")
         if pwd == st.secrets['playlist_pwd']:
 
+            # Initialize S3 client and refresh local playlist copy (if available)
+            s3_client = boto3.client('s3',
+                                     aws_access_key_id = st.secrets["aws"]["aws_access_key_id"],
+                                     aws_secret_access_key = st.secrets["aws"]["aws_secret_access_key"])
+            s3_bucket = "music48"
+            object_name = "Playlists/"+playlist+".csv"
+            # attempt to download the latest playlist from S3 to local file
+            try:
+                s3_client.download_file(s3_bucket, object_name, file_name)
+                df = pd.read_csv(file_name, index_col=0)
+            except Exception as e:
+                # if download fails, keep the local df (created earlier) or empty df
+                print("S3 download failed or no remote playlist yet:", e)
+
             # Append row
             if st.button("add to playlist"):
-                df2 = pd.Series([name,album,artist,duration_ms,popularity,img_album,external_url,track_id],
-                        index=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
-                # st.dataframe(df2)
-                df = df.append(df2,ignore_index=True) # Deprecated
-                # df = pd.concat([df,df2],ignore_index=True)
+                df2 = pd.DataFrame([[name,album,artist,duration_ms,popularity,img_album,external_url,track_id]],
+                                   columns=["name","album","artist","duration_ms","popularity","img_album","external_url","id"])
+                df = pd.concat([df, df2], ignore_index=True)
                 df.to_csv(file_name)
-                s3_client.upload_file(file_name, s3_bucket, object_name)
+                try:
+                    s3_client.upload_file(file_name, s3_bucket, object_name)
+                except Exception as e:
+                    st.write("Failed to upload to S3:", e)
+
             if st.checkbox("Playlist table"):
                 
                 # st.table(df)
